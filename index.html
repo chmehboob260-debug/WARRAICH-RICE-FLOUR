@@ -1,10 +1,23 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Waraich Rice and Flour Mills</title>
+  <title>Waraich Rice &amp; Flour Mills | Official</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg-page: #f8f7f4;
+      --bg-card: #ffffff;
+      --primary-green: #1e3f20;
+      --accent-gold: #c58f2a;
+      --text-dark: #181818;
+      --text-muted: #525252;
+      --border-light: #e5e2dc;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -12,101 +25,178 @@
     }
 
     body {
-      background-color: #ffffff;
-      color: #111111;
-      font-family: Arial, Helvetica, sans-serif;
+      background-color: var(--bg-page);
+      color: var(--text-dark);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.6;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+    }
+
+    /* Top Official Header */
+    header {
+      background-color: var(--primary-green);
+      color: #ffffff;
+      padding: 18px 24px;
+      border-bottom: 3px solid var(--accent-gold);
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
       justify-content: space-between;
-      position: relative;
-      overflow-x: hidden;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    /* Background particle canvas behind content */
-    #particles-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
+    .brand-name {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      color: #ffffff;
     }
 
-    /* Main content area */
-    .main-content {
-      position: relative;
-      z-index: 1;
-      padding: 64px 24px 48px;
-      max-width: 780px;
-      width: 100%;
+    .certified-pill {
+      background-color: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(197, 143, 42, 0.6);
+      color: #f7e4b8;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 50px;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg-page) 100%);
+      border-bottom: 1px solid var(--border-light);
+      padding: 52px 24px 40px;
+      text-align: center;
+    }
+
+    .hero-inner {
+      max-width: 760px;
       margin: 0 auto;
     }
 
-    .badge {
+    .hero-tag {
+      display: inline-block;
+      color: var(--accent-gold);
       font-size: 13px;
-      letter-spacing: 1px;
-      color: #555555;
-      margin-bottom: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
       text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
-    h1 {
-      font-size: 40px;
+    .hero h1 {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-size: clamp(32px, 5vw, 46px);
       font-weight: 700;
-      color: #0b0b0b;
-      margin-bottom: 36px;
+      color: var(--primary-green);
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* Main Content Container */
+    .main-content {
+      max-width: 960px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 40px 24px 60px;
+      flex: 1;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-bottom: 44px;
     }
 
     .showcase-card {
-      background-color: rgba(255, 255, 255, 0.92);
-      border: 1px solid #e2e2e2;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 28px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+      display: flex;
+      flex-direction: column;
     }
 
-    .showcase-card img {
+    .card-image-wrap {
       width: 100%;
-      max-height: 420px;
+      height: 280px;
+      overflow: hidden;
+      background-color: #ebe7df;
+      border-bottom: 3px solid var(--accent-gold);
+    }
+
+    .card-image-wrap img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      border-radius: 8px;
       display: block;
-      margin-bottom: 16px;
+    }
+
+    .card-body {
+      padding: 24px;
+      flex: 1;
+    }
+
+    .card-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent-gold);
+      margin-bottom: 6px;
+      display: block;
     }
 
     .showcase-card h2 {
       font-size: 22px;
       font-weight: 700;
-      color: #111111;
-      margin-bottom: 10px;
+      color: var(--primary-green);
+      margin-bottom: 12px;
     }
 
     .showcase-card p {
-      font-size: 16px;
-      line-height: 1.8;
-      color: #2b2b2b;
+      font-size: 15px;
+      line-height: 1.75;
+      color: #333333;
     }
 
-    /* Distinct dark shade box for Terms & Conditions / Terms of Use */
+    /* Terms & Conditions Section */
     .terms-section {
-      background-color: rgba(24, 24, 24, 0.96);
-      color: #f3f3f3;
-      border: 1px solid #2e2e2e;
+      background-color: #ffffff;
+      border: 1px solid var(--border-light);
+      border-left: 4px solid var(--primary-green);
       border-radius: 10px;
-      padding: 24px;
-      margin-top: 16px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
+      padding: 28px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.03);
     }
 
     .terms-section h2 {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 14px;
-      padding-bottom: 10px;
-      border-bottom: 1px solid #333333;
+      color: var(--primary-green);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border-light);
     }
 
     .terms-list {
@@ -117,158 +207,50 @@
     }
 
     .terms-list li {
-      font-size: 15px;
-      line-height: 1.75;
-      color: #d8d8d8;
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #3a3a3a;
     }
 
-    /* Separate dark contact section */
+    /* Official Dark Footer / Contact */
     .contact-box {
-      position: relative;
-      z-index: 1;
-      background-color: #0e0e0e;
+      background-color: #142815;
       color: #ffffff;
-      padding: 36px 24px;
-      margin-top: 48px;
-      border-top: 2px solid #222222;
+      padding: 40px 24px;
+      border-top: 3px solid var(--accent-gold);
     }
 
     .contact-inner {
-      max-width: 780px;
+      max-width: 960px;
       margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
     }
 
-    .contact-title {
+    .contact-info h2 {
       font-size: 20px;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin-bottom: 6px;
       color: #ffffff;
+    }
+
+    .contact-info p {
+      font-size: 14px;
+      color: #c9d4ca;
     }
 
     .contact-list {
       list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
     }
 
     .contact-list a {
       display: inline-block;
       color: #ffffff;
-      background-color: #1b1b1b;
-      border: 1px solid #333333;
-      text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      transition: background-color 0.2s ease, border-color 0.2s ease;
-    }
-
-    .contact-list a:hover {
-      background-color: #2a2a2a;
-      border-color: #666666;
-    }
-  </style>
-</head>
-<body>
-  <canvas id="particles-canvas"></canvas>
-
-  <main class="main-content">
-    <p class="badge">Certified by Chaudhary</p>
-    <h1>Waraich Rice and Flour Mills</h1>
-
-    <!-- Rice Crop Image & Paragraph -->
-    <article class="showcase-card">
-      <img src="4951.jpg" alt="Rice crop in green paddy fields and clean white rice grains in a traditional bowl" />
-      <h2>Rice Crop &amp; Grain Quality</h2>
-      <p>
-        This image shows clean white rice grains resting in a traditional bowl on a wooden surface alongside rice grains on a spoon. In the background, lush green paddy fields, flooded plots, and distant hills reflect fresh and quality rice production.
-      </p>
-    </article>
-
-    <!-- Wheat Crop Image & Paragraph -->
-    <article class="showcase-card">
-      <img src="4950.jpg" alt="Golden wheat crop field and wheat grains in a metal bowl" />
-      <h2>Wheat Crop &amp; Grain Quality</h2>
-      <p>
-        This image shows wheat grains inside a metal bowl placed beside a golden ripened wheat field. Surrounding golden wheat stalks, dry straw, and soft natural sunlight highlight the harvest and preparation of quality grain.
-      </p>
-    </article>
-
-    <!-- Terms & Conditions / Terms of Use -->
-    <section class="terms-section" id="terms">
-      <h2>Terms &amp; Conditions / Terms of Use</h2>
-      <ol class="terms-list">
-        <li>By accessing or using this website or page, the user agrees to all terms, conditions, and rules of use. If you do not agree with any term, please discontinue using the page.</li>
-        <li>All images, written descriptions, designs, and content presented on this page are provided solely for informational and business introduction purposes.</li>
-        <li>Final terms regarding quality, pricing, availability, weight, and delivery for rice and wheat are determined at the time of order or agreement and may change based on seasonal or market conditions.</li>
-        <li>Users may not copy, reproduce, distribute, or use any content, image, or text from this page for commercial purposes, unauthorized duplication, or misuse without prior permission.</li>
-        <li>While using the website, users must refrain from any unlawful activity, system disruption, or distribution of misleading information.</li>
-        <li>Management reserves the right to modify or update the page content and these terms and conditions from time to time, with or without prior notice.</li>
-      </ol>
-    </section>
-  </main>
-
-  <section class="contact-box" id="contact">
-    <div class="contact-inner">
-      <h2 class="contact-title">Contact Information</h2>
-      <ul class="contact-list">
-        <li><a href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
-        <li><a href="mailto:example@example.com">Email</a></li>
-        <li><a href="https://instagram.com/iunknownmguy" target="_blank" rel="noopener noreferrer">Instagram (@iunknownmguy)</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <script>
-    const canvas = document.getElementById("particles-canvas");
-    const ctx = canvas.getContext("2d");
-    let particles = [];
-
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    }
-
-    function createParticles() {
-      const count = Math.min(65, Math.floor((window.innerWidth * window.innerHeight) / 18000));
-      particles = Array.from({ length: Math.max(25, count) }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        r: Math.random() * 2.5 + 1,
-        vx: (Math.random() - 0.5) * 0.6,
-        vy: (Math.random() - 0.5) * 0.6,
-        alpha: Math.random() * 0.35 + 0.15
-      }));
-    }
-
-    function drawParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (const p of particles) {
-        p.x += p.vx;
-        p.y += p.vy;
-
-        if (p.x < 0) p.x = canvas.width;
-        if (p.x > canvas.width) p.x = 0;
-        if (p.y < 0) p.y = canvas.height;
-        if (p.y > canvas.height) p.y = 0;
-
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(30, 30, 30, ${p.alpha})`;
-        ctx.fill();
-      }
-      requestAnimationFrame(drawParticles);
-    }
-
-    window.addEventListener("resize", () => {
-      resizeCanvas();
-      createParticles();
-    });
-
-    resizeCanvas();
-    createParticles();
-    drawParticles();
-  </script>
-</body>
-</html>
+      background-color: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255
