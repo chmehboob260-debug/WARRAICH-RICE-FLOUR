@@ -1,1 +1,424 @@
-addindex.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEHBOOB AHMED | With H. Rice / Flour Mills</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #08080a;
+            color: #ffffff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2.5rem 1rem;
+            position: relative;
+        }
+
+        #ember-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            padding: 2.2rem 1.8rem;
+            max-width: 700px;
+            width: 95%;
+            background: rgba(15, 15, 20, 0.78);
+            border: 1px solid rgba(255, 100, 30, 0.28);
+            border-radius: 18px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 12px 45px rgba(0, 0, 0, 0.85);
+        }
+
+        /* Top Brand Tagline with Wheat Logo */
+        .brand-tagline {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.14), rgba(255, 106, 0, 0.08));
+            border: 1px solid rgba(245, 158, 11, 0.4);
+            padding: 8px 18px;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+        }
+
+        .wheat-logo {
+            width: 24px;
+            height: 24px;
+            color: #fbbf24;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 6px rgba(251, 191, 36, 0.5));
+        }
+
+        .brand-tagline span {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            color: #fde68a;
+            text-transform: uppercase;
+        }
+
+        .badge {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 1.1rem auto;
+            font-family: 'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+            font-size: 0.92rem;
+            letter-spacing: 1.5px;
+            color: #ff6a00;
+            background: rgba(255, 106, 0, 0.1);
+            border: 1px solid rgba(255, 106, 0, 0.3);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 0.4rem;
+            background: linear-gradient(90deg, #ffffff, #cfcfcf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-bottom: 1.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        .main-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff5100, #d93800);
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px rgba(255, 81, 0, 0.35);
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .main-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 81, 0, 0.55);
+        }
+
+        /* Photo Gallery Section */
+        .gallery-section {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: #fbbf24;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 16px;
+        }
+
+        .photo-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .photo-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(251, 191, 36, 0.45);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .photo-desc {
+            padding: 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .desc-tag {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fbbf24;
+            background: rgba(251, 191, 36, 0.12);
+            border: 1px solid rgba(251, 191, 36, 0.25);
+            padding: 2px 8px;
+            border-radius: 4px;
+            width: fit-content;
+            font-weight: 600;
+        }
+
+        .photo-desc h3 {
+            font-size: 0.96rem;
+            color: #f9fafb;
+            font-weight: 600;
+        }
+
+        .photo-desc p {
+            font-size: 0.82rem;
+            color: #cbd5e1;
+            line-height: 1.5;
+        }
+
+        /* Contact Buttons */
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            width: 100%;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #f3f4f6;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.25s ease;
+        }
+
+        .contact-btn svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        .contact-btn.whatsapp:hover {
+            background: rgba(37, 211, 102, 0.12);
+            border-color: #25D366;
+            color: #25D366;
+        }
+
+        .contact-btn.email:hover {
+            background: rgba(234, 67, 53, 0.12);
+            border-color: #EA4335;
+            color: #EA4335;
+        }
+
+        .contact-btn.instagram:hover {
+            background: rgba(225, 48, 108, 0.12);
+            border-color: #E1306C;
+            color: #E1306C;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.75rem;
+                letter-spacing: 2px;
+            }
+            .brand-tagline span {
+                font-size: 0.82rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="ember-canvas"></canvas>
+
+    <div class="container">
+        <!-- 1. Top Tagline with Wheat Stalk Logo -->
+        <div class="brand-tagline">
+            <svg class="wheat-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22V8"/>
+                <path d="M12 5c0-1.7-1.3-3-3-3 0 1.7 1.3 3 3 3z" fill="currentColor"/>
+                <path d="M12 5c0-1.7 1.3-3 3-3 0 1.7-1.3 3-3 3z" fill="currentColor"/>
+                <path d="M12 9c-2.2 0-4-1.8-4-4 2.2 0 4 1.8 4 4z" fill="currentColor"/>
+                <path d="M12 9c2.2 0 4-1.8 4-4-2.2 0-4 1.8-4 4z" fill="currentColor"/>
+                <path d="M12 13c-2.5 0-4.5-2-4.5-4.5 2.5 0 4.5 2 4.5 4.5z" fill="currentColor"/>
+                <path d="M12 13c2.5 0 4.5-2 4.5-4.5-2.5 0-4.5 2-4.5 4.5z" fill="currentColor"/>
+                <path d="M12 17c-2.5 0-4.5-2-4.5-4.5 2.5 0 4.5 2 4.5 4.5z" fill="currentColor"/>
+                <path d="M12 17c2.5 0 4.5-2 4.5-4.5-2.5 0-4.5 2-4.5 4.5z" fill="currentColor"/>
+            </svg>
+            <span>With H. Rice / Flour Mills</span>
+        </div>
+
+        <div class="badge">सर्टिफाइड बाय चौधरी</div>
+        <h1>MEHBOOB AHMED</h1>
+        <p class="subtitle">Official Digital Space &amp; Milling Operations</p>
+
+        <button class="main-btn" onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})">
+            Click to In
+        </button>
+
+        <!-- 2. Pictures with Detailed Visual Descriptions Below Each Image -->
+        <div class="gallery-section">
+            <div class="section-label">Photo Showcase &amp; Descriptions</div>
+            <div class="gallery-grid">
+                <!-- Photo 1 -->
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=600&q=80" alt="Close-up of ripe golden wheat stalks swaying in warm sunlight">
+                    <div class="photo-desc">
+                        <span class="desc-tag">Photo Description</span>
+                        <h3>Golden Wheat Stalks</h3>
+                        <p>Close-up view of ripe golden wheat stalks filled with grain heads, glowing under warm natural sunlight in an open field.</p>
+                    </div>
+                </div>
+
+                <!-- Photo 2 -->
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=600&q=80" alt="Scoop of clean white rice grains showing grain texture">
+                    <div class="photo-desc">
+                        <span class="desc-tag">Photo Description</span>
+                        <h3>Clean White Rice Grains</h3>
+                        <p>Detailed shot of neat, polished white rice grains held in a scoop, highlighting their even size and clean finish.</p>
+                    </div>
+                </div>
+
+                <!-- Photo 3 -->
+                <div class="photo-card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Soft milled flour texture with baking ingredients on a table">
+                    <div class="photo-desc">
+                        <span class="desc-tag">Photo Description</span>
+                        <h3>Milled Flour &amp; Grain Prep</h3>
+                        <p>Overhead view of finely milled flour and grain preparation on a rustic surface, showing soft powder texture and natural tones.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Contact Links -->
+        <div class="contact-list" id="contacts">
+            <!-- WhatsApp Button -->
+            <a href="https://wa.me/923709041824" target="_blank" class="contact-btn whatsapp">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/>
+                </svg>
+                <span>WhatsApp</span>
+            </a>
+
+            <!-- Email Button -->
+            <a href="mailto:chaudhary51ahmad@gmail.com" class="contact-btn email">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>Email Me</span>
+            </a>
+
+            <!-- Instagram Button -->
+            <a href="https://instagram.com/iunknownmguy" target="_blank" class="contact-btn instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+                <span>@iunknownmguy</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('ember-canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const embers = [];
+        const emberCount = 55;
+
+        class Ember {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = canvas.height + Math.random() * 100;
+                this.size = Math.random() * 2.5 + 0.8;
+                this.speedY = Math.random() * 1.2 + 0.4;
+                this.speedX = (Math.random() - 0.5) * 0.6;
+                this.opacity = Math.random() * 0.7 + 0.2;
+            }
+            update() {
+                this.y -= this.speedY;
+                this.x += this.speedX;
+                if (this.y < -10) this.reset();
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 95, 20, ${this.opacity})`;
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = '#ff4500';
+                ctx.fill();
+            }
+        }
+
+        for (let i = 0; i < emberCount; i++) {
+            embers.push(new Ember());
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            embers.forEach(ember => {
+                ember.update();
+                ember.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
