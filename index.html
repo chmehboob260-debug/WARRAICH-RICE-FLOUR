@@ -1,5 +1,5 @@
-<!DOCTYPE html> 
-<html lang="ur" dir="rtl">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -23,7 +23,7 @@
       overflow-x: hidden;
     }
 
-    /* ذرات کا کینوس مکمل پس منظر میں، ٹیکسٹ کے پیچھے */
+    /* Background particle canvas behind content */
     #particles-canvas {
       position: fixed;
       inset: 0;
@@ -33,7 +33,7 @@
       pointer-events: none;
     }
 
-    /* اوپر اور درمیان والا سفید مواد */
+    /* Main content area */
     .main-content {
       position: relative;
       z-index: 1;
@@ -48,6 +48,7 @@
       letter-spacing: 1px;
       color: #555555;
       margin-bottom: 14px;
+      text-transform: uppercase;
     }
 
     h1 {
@@ -88,25 +89,28 @@
       color: #2b2b2b;
     }
 
+    /* Distinct dark shade box for Terms & Conditions / Terms of Use */
     .terms-section {
-      background-color: rgba(250, 250, 250, 0.96);
-      border: 1px solid #dcdcdc;
+      background-color: rgba(24, 24, 24, 0.96);
+      color: #f3f3f3;
+      border: 1px solid #2e2e2e;
       border-radius: 10px;
       padding: 24px;
       margin-top: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.14);
     }
 
     .terms-section h2 {
       font-size: 24px;
       font-weight: 700;
-      color: #0e0e0e;
+      color: #ffffff;
       margin-bottom: 14px;
       padding-bottom: 10px;
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid #333333;
     }
 
     .terms-list {
-      padding-right: 20px;
+      padding-left: 20px;
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -115,10 +119,10 @@
     .terms-list li {
       font-size: 15px;
       line-height: 1.75;
-      color: #222222;
+      color: #d8d8d8;
     }
 
-    /* نیچے الگ سیاہ کانٹیکٹ سیکشن */
+    /* Separate dark contact section */
     .contact-box {
       position: relative;
       z-index: 1;
@@ -170,44 +174,44 @@
   <canvas id="particles-canvas"></canvas>
 
   <main class="main-content">
-    <p class="badge">سرتیفائیڈ بائی چودھری</p>
+    <p class="badge">Certified by Chaudhary</p>
     <h1>Waraich Rice and Flour Mills</h1>
 
-    <!-- پہلی تصویر اور اس کی تفصیل -->
+    <!-- Rice Crop Image & Paragraph -->
     <article class="showcase-card">
-      <img src="4951.jpg" alt="چاول کی فصل اور صاف چاول کا برتن" />
-      <h2>پہلی تصویر کی تفصیل: چاول کی فصل اور چاول</h2>
+      <img src="4951.jpg" alt="Rice crop in green paddy fields and clean white rice grains in a traditional bowl" />
+      <h2>Rice Crop &amp; Grain Quality</h2>
       <p>
-        اس تصویر میں لکڑی کی سطح پر ایک روایتی برتن میں صاف سفید چاول رکھے ہوئے دکھائی دے رہے ہیں اور ساتھ ہی ایک چمچ میں بھی چاول موجود ہیں[span_0](start_span)[span_0](end_span)۔ پس منظر میں سرسبز دھان کے کھیت، پانی سے بھری کیاریاں اور دور پہاڑوں کا قدرتی منظر نظر آتا ہے جو تازہ اور معیاری چاول کی پیداوار کی عکاسی کرتا ہے[span_1](start_span)[span_1](end_span)۔
+        This image shows clean white rice grains resting in a traditional bowl on a wooden surface alongside rice grains on a spoon. In the background, lush green paddy fields, flooded plots, and distant hills reflect fresh and quality rice production.
       </p>
     </article>
 
-    <!-- دوسری تصویر اور اس کی تفصیل -->
+    <!-- Wheat Crop Image & Paragraph -->
     <article class="showcase-card">
-      <img src="4950.jpg" alt="گندم کی فصل اور گندم کے دانے" />
-      <h2>دوسری تصویر کی تفصیل: گندم کی فصل اور گندم کے دانے</h2>
+      <img src="4950.jpg" alt="Golden wheat crop field and wheat grains in a metal bowl" />
+      <h2>Wheat Crop &amp; Grain Quality</h2>
       <p>
-        اس تصویر میں سنہری پکی ہوئی گندم کے کھیت کے کنارے ایک دھاتی برتن میں گندم کے دانے دکھائی دے رہے ہیں[span_2](start_span)[span_2](end_span)۔ چاروں طرف فصل کی تیار سنہری بالیاں، خشک بھوسا اور ہلکی دھوپ کا قدرتی ماحول گندم کی کٹائی اور معیاری اناج کی تیاری کو ظاہر کرتا ہے[span_3](start_span)[span_3](end_span)۔
+        This image shows wheat grains inside a metal bowl placed beside a golden ripened wheat field. Surrounding golden wheat stalks, dry straw, and soft natural sunlight highlight the harvest and preparation of quality grain.
       </p>
     </article>
 
-    <!-- ٹرمز آف کنڈیشنز / ٹرمز آف یوزز -->
+    <!-- Terms & Conditions / Terms of Use -->
     <section class="terms-section" id="terms">
-      <h2>ٹرمز آف کنڈیشنز / ٹرمز آف یوزز</h2>
+      <h2>Terms &amp; Conditions / Terms of Use</h2>
       <ol class="terms-list">
-        <li>اس ویب سائٹ یا صفحے کو استعمال کرتے ہوئے صارف تمام شرائط و ضوابط اور استعمال کے اصولوں سے اتفاق کرتا ہے۔ اگر کسی شرط سے اتفاق نہ ہو تو صفحے کا استعمال ترک کیا جا سکتا ہے۔</li>
-        <li>صفحے پر موجود تمام تصاویر، تحریری تفصیلات، ڈیزائن اور مواد صرف معلوماتی اور کاروباری تعارف کے مقاصد کے لیے پیش کیے گئے ہیں۔</li>
-        <li>چاول اور گندم سے متعلق معیار، نرخ، دستیابی، وزن اور ترسیل کی حتمی شرائط آرڈر یا معاہدے کے وقت طے پائیں گی اور موسمی یا منڈی کے حالات کے مطابق تبدیل ہو سکتی ہیں۔</li>
-        <li>صارف اس صفحے پر موجود کسی بھی مواد، تصویر یا تحریر کو بغیر پیشگی اجازت تجارتی مقصد، نقل یا غلط استعمال کے لیے کاپی یا تقسیم نہیں کرے گا۔</li>
-        <li>ویب سائٹ کے استعمال کے دوران صارف کسی غیر قانونی سرگرمی، نظام کو نقصان پہنچانے یا غلط معلومات پھیلانے سے گریز کرے گا۔</li>
-        <li>انتظامیہ کو یہ حق حاصل ہے کہ وہ کسی پیشگی اطلاع کے بغیر یا اطلاع کے ساتھ صفحے کے مواد اور ان شرائط و ضوابط میں وقتاً فوقتاً ترمیم یا تبدیلی کر سکے۔</li>
+        <li>By accessing or using this website or page, the user agrees to all terms, conditions, and rules of use. If you do not agree with any term, please discontinue using the page.</li>
+        <li>All images, written descriptions, designs, and content presented on this page are provided solely for informational and business introduction purposes.</li>
+        <li>Final terms regarding quality, pricing, availability, weight, and delivery for rice and wheat are determined at the time of order or agreement and may change based on seasonal or market conditions.</li>
+        <li>Users may not copy, reproduce, distribute, or use any content, image, or text from this page for commercial purposes, unauthorized duplication, or misuse without prior permission.</li>
+        <li>While using the website, users must refrain from any unlawful activity, system disruption, or distribution of misleading information.</li>
+        <li>Management reserves the right to modify or update the page content and these terms and conditions from time to time, with or without prior notice.</li>
       </ol>
     </section>
   </main>
 
   <section class="contact-box" id="contact">
     <div class="contact-inner">
-      <h2 class="contact-title">رابطہ کی تفصیلات</h2>
+      <h2 class="contact-title">Contact Information</h2>
       <ul class="contact-list">
         <li><a href="https://wa.me/" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
         <li><a href="mailto:example@example.com">Email</a></li>
