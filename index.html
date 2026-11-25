@@ -1,5 +1,5 @@
-<!DOCTYPE html> 
-<html lang="ur">
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -54,14 +54,68 @@
       font-size: 40px;
       font-weight: 700;
       color: #0b0b0b;
+      margin-bottom: 36px;
+    }
+
+    .showcase-card {
+      background-color: rgba(255, 255, 255, 0.92);
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 28px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .showcase-card img {
+      width: 100%;
+      max-height: 420px;
+      object-fit: cover;
+      border-radius: 8px;
+      display: block;
       margin-bottom: 16px;
     }
 
-    .bio {
-      font-size: 17px;
-      line-height: 1.7;
-      color: #262626;
-      max-width: 620px;
+    .showcase-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 10px;
+    }
+
+    .showcase-card p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #2b2b2b;
+    }
+
+    .terms-section {
+      background-color: rgba(250, 250, 250, 0.96);
+      border: 1px solid #dcdcdc;
+      border-radius: 10px;
+      padding: 24px;
+      margin-top: 16px;
+    }
+
+    .terms-section h2 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #0e0e0e;
+      margin-bottom: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .terms-list {
+      padding-right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .terms-list li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #222222;
     }
 
     /* نیچے الگ سیاہ کانٹیکٹ سیکشن */
@@ -71,7 +125,7 @@
       background-color: #0e0e0e;
       color: #ffffff;
       padding: 36px 24px;
-      margin-top: 40px;
+      margin-top: 48px;
       border-top: 2px solid #222222;
     }
 
@@ -118,9 +172,37 @@
   <main class="main-content">
     <p class="badge">سرتیفائیڈ بائی چودھری</p>
     <h1>Waraich Rice and Flour Mills</h1>
-    <p class="bio">
-      خوش آمدید۔ یہ صفحہ سفید پس منظر پر تیار کیا گیا ہے جس کے پیچھے ذرات حرکت کر رہے ہیں، اور رابطے کی معلومات نیچے الگ سیاہ سیکشن میں دی گئی ہیں۔
-    </p>
+
+    <!-- پہلی تصویر اور اس کی تفصیل -->
+    <article class="showcase-card">
+      <img src="4951.jpg" alt="چاول کی فصل اور صاف چاول کا برتن" />
+      <h2>پہلی تصویر کی تفصیل: چاول کی فصل اور چاول</h2>
+      <p>
+        اس تصویر میں لکڑی کی سطح پر ایک روایتی برتن میں صاف سفید چاول رکھے ہوئے دکھائی دے رہے ہیں اور ساتھ ہی ایک چمچ میں بھی چاول موجود ہیں[span_0](start_span)[span_0](end_span)۔ پس منظر میں سرسبز دھان کے کھیت، پانی سے بھری کیاریاں اور دور پہاڑوں کا قدرتی منظر نظر آتا ہے جو تازہ اور معیاری چاول کی پیداوار کی عکاسی کرتا ہے[span_1](start_span)[span_1](end_span)۔
+      </p>
+    </article>
+
+    <!-- دوسری تصویر اور اس کی تفصیل -->
+    <article class="showcase-card">
+      <img src="4950.jpg" alt="گندم کی فصل اور گندم کے دانے" />
+      <h2>دوسری تصویر کی تفصیل: گندم کی فصل اور گندم کے دانے</h2>
+      <p>
+        اس تصویر میں سنہری پکی ہوئی گندم کے کھیت کے کنارے ایک دھاتی برتن میں گندم کے دانے دکھائی دے رہے ہیں[span_2](start_span)[span_2](end_span)۔ چاروں طرف فصل کی تیار سنہری بالیاں، خشک بھوسا اور ہلکی دھوپ کا قدرتی ماحول گندم کی کٹائی اور معیاری اناج کی تیاری کو ظاہر کرتا ہے[span_3](start_span)[span_3](end_span)۔
+      </p>
+    </article>
+
+    <!-- ٹرمز آف کنڈیشنز / ٹرمز آف یوزز -->
+    <section class="terms-section" id="terms">
+      <h2>ٹرمز آف کنڈیشنز / ٹرمز آف یوزز</h2>
+      <ol class="terms-list">
+        <li>اس ویب سائٹ یا صفحے کو استعمال کرتے ہوئے صارف تمام شرائط و ضوابط اور استعمال کے اصولوں سے اتفاق کرتا ہے۔ اگر کسی شرط سے اتفاق نہ ہو تو صفحے کا استعمال ترک کیا جا سکتا ہے۔</li>
+        <li>صفحے پر موجود تمام تصاویر، تحریری تفصیلات، ڈیزائن اور مواد صرف معلوماتی اور کاروباری تعارف کے مقاصد کے لیے پیش کیے گئے ہیں۔</li>
+        <li>چاول اور گندم سے متعلق معیار، نرخ، دستیابی، وزن اور ترسیل کی حتمی شرائط آرڈر یا معاہدے کے وقت طے پائیں گی اور موسمی یا منڈی کے حالات کے مطابق تبدیل ہو سکتی ہیں۔</li>
+        <li>صارف اس صفحے پر موجود کسی بھی مواد، تصویر یا تحریر کو بغیر پیشگی اجازت تجارتی مقصد، نقل یا غلط استعمال کے لیے کاپی یا تقسیم نہیں کرے گا۔</li>
+        <li>ویب سائٹ کے استعمال کے دوران صارف کسی غیر قانونی سرگرمی، نظام کو نقصان پہنچانے یا غلط معلومات پھیلانے سے گریز کرے گا۔</li>
+        <li>انتظامیہ کو یہ حق حاصل ہے کہ وہ کسی پیشگی اطلاع کے بغیر یا اطلاع کے ساتھ صفحے کے مواد اور ان شرائط و ضوابط میں وقتاً فوقتاً ترمیم یا تبدیلی کر سکے۔</li>
+      </ol>
+    </section>
   </main>
 
   <section class="contact-box" id="contact">
